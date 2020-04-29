@@ -1,29 +1,29 @@
 require 'sinatra/base'
 
+set :session_secret, 'c-kret'
+
 class Battle < Sinatra::Base
   enable :sessions
 
   get '/' do
-    # 'Testing infrastructure working!'
     erb(:index)
   end
 
   post '/names' do
-    # p params
-    session[:Player1_name] = params[:Player1_name]
-    session[:Player2_name] = params[:Player2_name]
+    $Player1 = Player.new(params[:Player1_name])
+    $Player2 = Player.new(params[:Player2_name])
     redirect '/play'
   end
 
   get '/play' do
-    @Player1_name = session[:Player1_name]
-    @Player2_name = session[:Player2_name]
+    @Player1_name = $Player1.name
+    @Player2_name = $Player2.name
     erb(:play)
   end
 
   get '/attack' do
-    @Player1_name = session[:Player1_name]
-    @Player2_name = session[:Player2_name]
+    @Player1_name = $Player1.name
+    @Player2_name = $Player2.name
     erb(:attack)
   end
 
