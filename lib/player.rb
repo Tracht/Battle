@@ -13,5 +13,3 @@ class Player
   end
 
 end
-
-# player1.attack(jack)
