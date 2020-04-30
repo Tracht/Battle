@@ -17,28 +17,19 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    # puts @player1_name = $game.player1.name
-    # puts @player2_name = $game.player2.name
     @game = $game
     erb(:play)
   end
 
   post '/hits' do
     @game = $game
-    @game.attack(@game.player2)
-
-    # $game.attack($game.player2)
-    # @player1_hp  = $game.player1.hp
-    # @player2_hp  = $game.player2.hp
+    @game.attack(@game.opponent)
+    @game.switch_turn
     redirect '/attack'
   end
 
   get '/attack' do
     @game = $game
-    # @player1_name = @game.player1.name
-    # @player2_name = @game.player2.name
-    # @player1_hp  = @game.player1.hp
-    # @player2_hp  = @game.player2.hp
     erb(:attack)
   end
 

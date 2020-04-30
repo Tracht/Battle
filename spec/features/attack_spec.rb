@@ -12,4 +12,6 @@ feature 'Attack' do
       expect(page).to have_content 'Success! Player 2 attacked! John : 100 HP Steve : 90 HP'
     end
   end
+
+
 end
