@@ -18,19 +18,23 @@ class Battle < Sinatra::Base
     @Player1_name = $Player1.name
     @Player2_name = $Player2.name
 
-    # @Player1_hp  = $Player1.hp
-    # @Player2_hp  = $Player2.hp
+    @Player1_hp  = $Player1.hp
+    @Player2_hp  = $Player2.hp
     erb(:play)
   end
 
   post '/hits' do
+    $Player1.attack($Player2)
+    @Player1_hp  = $Player1.hp
+    @Player2_hp  = $Player2.hp
     redirect '/attack'
   end
-
 
   get '/attack' do
     @Player1_name = $Player1.name
     @Player2_name = $Player2.name
+    @Player1_hp  = $Player1.hp
+    @Player2_hp  = $Player2.hp
     erb(:attack)
   end
 
