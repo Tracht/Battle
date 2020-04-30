@@ -1,6 +1,5 @@
 require 'sinatra/base'
-
-set :session_secret, 'c-kret'
+require './lib/player'
 
 class Battle < Sinatra::Base
   enable :sessions
@@ -18,8 +17,16 @@ class Battle < Sinatra::Base
   get '/play' do
     @Player1_name = $Player1.name
     @Player2_name = $Player2.name
+
+    # @Player1_hp  = $Player1.hp
+    # @Player2_hp  = $Player2.hp
     erb(:play)
   end
+
+  post '/hits' do
+    redirect '/attack'
+  end
+
 
   get '/attack' do
     @Player1_name = $Player1.name

@@ -1,9 +1,5 @@
 <%= @Player1_name %> vs. <%= @Player2_name %><br>
 
-<%= @Player2_name %>: 8 Hit Points<br>
-
-<form action="/attack">
+<form action="/play" method="post">
   <input type="submit" value="Attack">
 </form>
-
-<!--<button type="button">Attack</button><br>-->
