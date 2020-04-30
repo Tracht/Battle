@@ -24,7 +24,7 @@ class Battle < Sinatra::Base
   end
 
   post '/hits' do
-    $Player1.attack($Player2)
+    Game.new.attack($Player2)
     @Player1_hp  = $Player1.hp
     @Player2_hp  = $Player2.hp
     redirect '/attack'

@@ -15,11 +15,11 @@ describe Player do
       expect(rose.name).to eq('Rose')
     end
 
-  describe '#attack' do
-    it 'player 1 reduces player 2 HP by 10' do
-      expect { rose.attack(jack) }.to change { jack.hp }.by(-10)
+  describe 'receive_damage' do
+    it 'reduces HP' do
+      expect { rose.receive_damage }.to change { rose.hp }.by(-10)
     end
-  end
+  end 
 
   end
 end
