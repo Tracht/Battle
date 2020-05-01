@@ -1,7 +1,11 @@
-Success! Player 2 attacked! <br>
-<%= @game.player1.name %> : <%= @game.player1.hp %> HP <br>
-<%= @game.player2.name %> : <%= @game.player2.hp %> HP
+<h2> Success! <%= @game.opponent.name %> was attacked! </h2><br>
+<h3>
+<%= @game.player1.name %>: <%= @game.player1.hp %> HP <br>
+<%= @game.player2.name %>: <%= @game.player2.hp %> HP
+</h3>
 
-<form action="/play" method="get">
-  <input type="submit" value="Next player move">
+<h3>
+<form action="/switch_turn" method="post">
+  <input type="submit" value="Next player's turn">
 </form>
+</h3>
